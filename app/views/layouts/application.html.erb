@@ -25,10 +25,11 @@
 
 
   <body class="bg-slate-100 text-slate-800 min-h-screen">
-   <%= render 'layouts/nav' %>
-   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-     <%= render 'layouts/notice_alert' %>
+  <%= render "layouts/nav" %>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <%= render "layouts/notice_alert" %>
     <%= yield %>
-   </main>
+  </main>
   </body>
 </html>
