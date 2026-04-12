@@ -22,7 +22,9 @@
 
       <div>
         <p class="text-sm font-medium text-slate-500">Status</p>
-        <p class="mt-1 text-lg text-slate-900"><%= @client.status %></p>
+        <span class="<%= status_badge(@client.status) %>">
+          <%= @client.status.capitalize %>
+        </span>
       </div>
 
       <div>
