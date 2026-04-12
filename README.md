@@ -8,7 +8,7 @@ This project is being built step by step to demonstrate real-world Rails develop
 
 ⸻
 
-🚀 Current Features
+🚀🚀🚀 Current Features 🚀🚀🚀
 
 Clients Management (CRUD)
 •	Create, view, edit, and delete clients
