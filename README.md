@@ -76,7 +76,7 @@ Status is displayed using reusable helper-based badges.
 
 🔜 Next Steps
 •	Lead management system
-•	Lead → Client conversion
+•	Lead → Client conversion 🚀
 •	Tasks for clients
 •	Notes system
 •	Authentication (Devise)
