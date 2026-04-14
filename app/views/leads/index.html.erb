@@ -1,0 +1,50 @@
+<div class="flex items-center justify-between mb-8">
+  <div>
+    <h1 class="text-3xl font-bold text-slate-900">Leads</h1>
+    <p class="mt-2 text-slate-600">Manage potential clients in one place.</p>
+  </div>
+
+  <%= link_to "New lead", new_lead_path, class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800" %>
+</div>
+
+<% if @leads.any? %>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+    <% @leads.each do |lead| %>
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-semibold text-slate-900">
+              <%= link_to lead.full_name, lead_path(lead), class: "hover:underline" %>
+            </h2>
+            <p class="mt-1 text-sm text-slate-500"><%= lead.company_name %></p>
+          </div>
+
+          <span class="<%= status_badge(lead.status) %>">
+            <%= lead.status.capitalize %>
+          </span>
+        </div>
+
+        <div class="mt-5 space-y-2 text-sm text-slate-600">
+          <p><strong>Email:</strong> <%= lead.email %></p>
+          <p><strong>Phone:</strong> <%= lead.phone.presence || "Not provided" %></p>
+        </div>
+
+        <div class="mt-6 flex items-center gap-3">
+          <%= link_to "Show", lead_path(lead), class: "text-sm font-medium text-slate-700 hover:text-slate-900" %>
+          <%= link_to "Edit", edit_lead_path(lead), class: "text-sm font-medium text-indigo-600 hover:text-indigo-800" %>
+          <%= link_to "Delete", lead_path(lead),
+                      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                      class: "text-sm font-medium text-red-600 hover:text-red-800" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-10 text-center">
+    <h2 class="text-xl font-semibold text-slate-900">No leads yet</h2>
+    <p class="mt-3 text-slate-600">Create your first lead to get started.</p>
+    <div class="mt-6">
+      <%= link_to "Create lead", new_lead_path, class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800" %>
+    </div>
+  </div>
+<% end %>

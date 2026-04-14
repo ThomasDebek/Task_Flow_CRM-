@@ -1,0 +1,52 @@
+<%= form_with model: @lead, class: "space-y-6" do |form| %>
+  <% if @lead.errors.any? %>
+    <div class="rounded-lg border border-red-200 bg-red-50 p-4">
+      <h2 class="text-lg font-semibold text-red-800 mb-2">
+        Please fix the following errors:
+      </h2>
+      <ul class="list-disc list-inside text-red-700 space-y-1">
+        <% @lead.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :first_name, class: "block text-sm font-medium text-slate-700 mb-2" %>
+    <%= form.text_field :first_name, class: "w-full rounded-lg border border-slate-300 px-4 py-2" %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, class: "block text-sm font-medium text-slate-700 mb-2" %>
+    <%= form.text_field :last_name, class: "w-full rounded-lg border border-slate-300 px-4 py-2" %>
+  </div>
+
+  <div>
+    <%= form.label :email, class: "block text-sm font-medium text-slate-700 mb-2" %>
+    <%= form.email_field :email, class: "w-full rounded-lg border border-slate-300 px-4 py-2" %>
+  </div>
+
+  <div>
+    <%= form.label :phone, class: "block text-sm font-medium text-slate-700 mb-2" %>
+    <%= form.text_field :phone, class: "w-full rounded-lg border border-slate-300 px-4 py-2" %>
+  </div>
+
+  <div>
+    <%= form.label :company_name, class: "block text-sm font-medium text-slate-700 mb-2" %>
+    <%= form.text_field :company_name, class: "w-full rounded-lg border border-slate-300 px-4 py-2" %>
+  </div>
+
+  <div>
+    <%= form.label :status, class: "block text-sm font-medium text-slate-700 mb-2" %>
+    <%= form.select :status,
+                    [["New", "new"], ["Contacted", "contacted"], ["Qualified", "qualified"], ["Lost", "lost"]],
+                    { prompt: "Select status" },
+                    class: "w-full rounded-lg border border-slate-300 px-4 py-2" %>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <%= form.submit class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800 cursor-pointer" %>
+    <%= link_to "Back", leads_path, class: "inline-flex items-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-slate-700 font-medium hover:bg-slate-50" %>
+  </div>
+<% end %>
