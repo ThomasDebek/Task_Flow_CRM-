@@ -1,5 +1,5 @@
 class LeadsController < ApplicationController
-  before_action :set_lead, only: [:show, :edit, :update, :destroy, :convert]
+  before_action :set_lead, only: [:show, :edit, :update, :destroy, :convert, :advance]
 
   def index
     @leads = Lead.order(created_at: :desc)
@@ -51,6 +51,16 @@ class LeadsController < ApplicationController
 
     redirect_to client, notice: "Lead was successfully converted to client."
   end
+
+  def advance
+    if @lead.can_advance?
+      @lead.update(status: @lead.next_status)
+      redirect_to @lead, notice: "Lead status moved to #{@lead.status}."
+    else
+      redirect_to @lead, alert: "This lead cannot be moved to the next stage."
+    end
+  end
+
 
   private
 

@@ -15,4 +15,22 @@ module ApplicationHelper
       "#{base} bg-gray-100 text-gray-700"
     end
   end
+
+  def lead_status_badge(status)
+    base = "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
+    case status
+    when "new"
+      "#{base} bg-blue-100 text-blue-800"
+    when "contacted"
+      "#{base} bg-yellow-100 text-yellow-800"
+    when "qualified"
+      "#{base} bg-green-100 text-green-800"
+    when "lost"
+      "#{base} bg-red-100 text-red-800"
+    else
+      "#{base} bg-gray-100 text-gray-700"
+    end
+  end
+
+
 end

@@ -19,7 +19,7 @@
             <p class="mt-1 text-sm text-slate-500"><%= lead.company_name %></p>
           </div>
 
-          <span class="<%= status_badge(lead.status) %>">
+          <span class="<%= lead_status_badge(lead.status) %>">
             <%= lead.status.capitalize %>
           </span>
         </div>

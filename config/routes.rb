@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :leads do
     member do
       post :convert
+      patch :advance
     end
   end
 
