@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  resources :clients
+  resources :clients do
+    resources :tasks, except: [:index, :show]
+  end
 
 
   resources :leads do
