@@ -82,6 +82,18 @@ Clients have a status:
 •	✅ Client model – validations and data structure
 •	✅ Lead model – validations and helper methods
 
+
+
+### Tasks Management
+- ✅ Create, edit, and delete tasks for clients
+- ✅ Assign tasks directly to a specific client
+- ✅ Store task details:
+    - Title
+    - Description
+    - Status
+    - Due date
+- ✅ Display client tasks on the client details page
+
 ⸻
 ## 🧪 What I Learned
 
@@ -93,12 +105,12 @@ Clients have a status:
 - Creating reusable UI helpers
 - Implementing business logic (lead → client conversion)
 - Building a simple lead pipeline with controlled status progression
+- Working with nested resources and associations in Rails
 - 
 ⸻
 
 🔜 Next Steps
 
-•	⏳ Tasks for clients
 •	⏳ Notes system
 •	⏳ Authentication (Devise)
 •	⏳ Filtering and search
