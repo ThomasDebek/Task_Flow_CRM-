@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_14_182243) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_21_205123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -34,4 +34,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_14_182243) do
     t.string "status"
     t.datetime "updated_at", null: false
   end
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.date "due_date"
+    t.string "status"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_tasks_on_client_id"
+  end
+
+  add_foreign_key "tasks", "clients"
 end
