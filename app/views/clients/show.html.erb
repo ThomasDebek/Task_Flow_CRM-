@@ -48,6 +48,56 @@
       </div>
     </div>
 
+
+
+    <div class="mt-10">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900">Tasks</h2>
+          <p class="mt-1 text-slate-600">Manage tasks for this client.</p>
+        </div>
+
+        <%= link_to "New task", new_client_task_path(@client),
+                    class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800" %>
+      </div>
+
+      <% if @client.tasks.any? %>
+        <div class="space-y-4">
+          <% @client.tasks.order(created_at: :desc).each do |task| %>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="text-lg font-semibold text-slate-900"><%= task.title %></h3>
+                  <p class="mt-2 text-slate-600"><%= task.description.presence || "No description provided." %></p>
+                </div>
+
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+                  <%= task.status.humanize %>
+                </span>
+              </div>
+
+              <div class="mt-4 text-sm text-slate-600">
+                <p><strong>Due date:</strong> <%= task.due_date.present? ? task.due_date.strftime("%d.%m.%Y") : "Not set" %></p>
+              </div>
+
+              <div class="mt-5 flex items-center gap-3">
+                <%= link_to "Edit", edit_client_task_path(@client, task), class: "text-sm font-medium text-indigo-600 hover:text-indigo-800" %>
+                <%= link_to "Delete", client_task_path(@client, task),
+                            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                            class: "text-sm font-medium text-red-600 hover:text-red-800" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 text-center">
+          <h3 class="text-xl font-semibold text-slate-900">No tasks yet</h3>
+          <p class="mt-2 text-slate-600">Add the first task for this client.</p>
+        </div>
+      <% end %>
+    </div>
+
+
     <div class="pt-4 border-t border-slate-200">
       <%= link_to "Back to clients", clients_path, class: "text-sm font-medium text-slate-700 hover:text-slate-900" %>
     </div>
