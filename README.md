@@ -93,6 +93,8 @@ Clients have a status:
     - Status
     - Due date
 - ✅ Display client tasks on the client details page
+- ✅ Filter client tasks by status and overdue date
+- ✅ Improved task cards UI with status badges
 
 ⸻
 ## 🧪 What I Learned

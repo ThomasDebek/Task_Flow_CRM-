@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
 
-  STATUSES = %w[pending in_progress done].freeze
+  STATUSES = %w[pending in_progress done overdue ].freeze
 
   validates :title, presence: true
   validates :status, presence: true, inclusion: { in: STATUSES }
