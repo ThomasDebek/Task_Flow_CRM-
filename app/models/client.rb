@@ -4,4 +4,6 @@ class Client < ApplicationRecord
   validates :company_name, presence: true
   validates :phone, presence: true
   validates :status, presence: true
+
+  has_many :tasks, dependent: :destroy
 end

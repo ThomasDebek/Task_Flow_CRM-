@@ -6,6 +6,18 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @tasks = case params[:task_filter]
+             when "pending"
+               @client.tasks.pending.order(created_at: :desc)
+             when "in_progress"
+               @client.tasks.in_progress.order(created_at: :desc)
+             when "done"
+               @client.tasks.done.order(created_at: :desc)
+             when "overdue"
+               @client.tasks.overdue.order(created_at: :desc)
+             else
+               @client.tasks.order(created_at: :desc)
+             end
   end
 
   def new
