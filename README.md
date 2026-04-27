@@ -103,6 +103,12 @@ Clients have a status:
 - ✅ Highlight pending and overdue tasks
 - ✅ Clickable dashboard cards for quick navigation
 
+
+### Seed Data
+- ✅ Realistic sample data using Faker
+- ✅ Randomized clients, leads, and tasks
+- ✅ Overdue and future tasks for testing dashboard
+
 ⸻
 ## 🧪 What I Learned
 

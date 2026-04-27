@@ -8,5 +8,9 @@ class PagesController < ApplicationController
     @tasks_in_progress = Task.in_progress.count
     @tasks_overdue = Task.overdue.count
     @tasks_done = Task.done.count
+
+
+    @recent_leads = Lead.order(created_at: :desc).limit(5)
+    @recent_tasks = Task.includes(:client).order(created_at: :desc).limit(5)
   end
 end
