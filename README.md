@@ -96,6 +96,13 @@ Clients have a status:
 - ✅ Filter client tasks by status and overdue date
 - ✅ Improved task cards UI with status badges
 
+
+### Dashboard
+- ✅ Overview of clients, leads, and tasks
+- ✅ Display key CRM statistics
+- ✅ Highlight pending and overdue tasks
+- ✅ Clickable dashboard cards for quick navigation
+
 ⸻
 ## 🧪 What I Learned
 
@@ -117,5 +124,4 @@ Clients have a status:
 •	⏳ Authentication (Devise)
 •	⏳ Filtering and search
 •	⏳ Pagination
-•	⏳ Dashboard with statistics
 

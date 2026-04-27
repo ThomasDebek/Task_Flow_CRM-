@@ -14,32 +14,42 @@
     </p>
 
     <div class="mt-8 flex flex-wrap gap-4">
-      <%= link_to "Start now", "#", class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800" %>
-      <%= link_to "Learn more", "#features", class: "inline-flex items-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-slate-700 font-medium hover:bg-slate-50" %>
+      <%= link_to "View clients", clients_path, class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800" %>
+      <%= link_to "View leads", leads_path, class: "inline-flex items-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-slate-700 font-medium hover:bg-slate-50" %>
     </div>
   </div>
 
   <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div class="rounded-xl bg-slate-50 p-5 border border-slate-200">
-        <p class="text-sm text-slate-500">Active Clients</p>
-        <p class="mt-2 text-3xl font-bold text-slate-900">128</p>
-      </div>
 
-      <div class="rounded-xl bg-slate-50 p-5 border border-slate-200">
-        <p class="text-sm text-slate-500">Open Leads</p>
-        <p class="mt-2 text-3xl font-bold text-slate-900">42</p>
-      </div>
+      <%= link_to clients_path, class: "block rounded-xl bg-slate-50 p-5 border border-slate-200 hover:shadow-md transition" do %>
+        <p class="text-sm text-slate-500">Clients</p>
+        <p class="mt-2 text-3xl font-bold text-slate-900">
+          <%= @clients_count %>
+        </p>
+      <% end %>
 
-      <div class="rounded-xl bg-slate-50 p-5 border border-slate-200">
-        <p class="text-sm text-slate-500">Tasks Due Today</p>
-        <p class="mt-2 text-3xl font-bold text-slate-900">9</p>
-      </div>
+      <%= link_to leads_path, class: "block rounded-xl bg-slate-50 p-5 border border-slate-200 hover:shadow-md transition" do %>
+        <p class="text-sm text-slate-500">Leads</p>
+        <p class="mt-2 text-3xl font-bold text-slate-900">
+          <%= @leads_count %>
+        </p>
+      <% end %>
 
-      <div class="rounded-xl bg-slate-50 p-5 border border-slate-200">
-        <p class="text-sm text-slate-500">Conversion Rate</p>
-        <p class="mt-2 text-3xl font-bold text-slate-900">64%</p>
-      </div>
+      <%= link_to clients_path, class: "block rounded-xl bg-slate-50 p-5 border border-slate-200 hover:shadow-md transition" do %>
+        <p class="text-sm text-slate-500">Pending Tasks</p>
+        <p class="mt-2 text-3xl font-bold text-yellow-700">
+          <%= @tasks_pending %>
+        </p>
+      <% end %>
+
+      <%= link_to clients_path, class: "block rounded-xl bg-slate-50 p-5 border border-slate-200 hover:shadow-md transition" do %>
+        <p class="text-sm text-slate-500">Overdue Tasks</p>
+        <p class="mt-2 text-3xl font-bold text-red-700">
+          <%= @tasks_overdue %>
+        </p>
+      <% end %>
+
     </div>
   </div>
 </div>
