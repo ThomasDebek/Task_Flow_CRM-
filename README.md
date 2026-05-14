@@ -109,6 +109,15 @@ Clients have a status:
 - ✅ Randomized clients, leads, and tasks
 - ✅ Overdue and future tasks for testing dashboard
 
+
+### Search System
+- ✅ Client search using PgSearch
+- ✅ Search by name
+- ✅ Search by email
+- ✅ Search by phone number
+- ✅ Search by company name
+- ✅ Global search bar in navigation
+
 ⸻
 ## 🧪 What I Learned
 
@@ -121,13 +130,13 @@ Clients have a status:
 - Implementing business logic (lead → client conversion)
 - Building a simple lead pipeline with controlled status progression
 - Working with nested resources and associations in Rails
-- 
+- Implementing PostgreSQL search using PgSearch
+- Building reusable search functionality
 ⸻
 
 🔜 Next Steps
 
 •	⏳ Notes system
 •	⏳ Authentication (Devise)
-•	⏳ Filtering and search
 •	⏳ Pagination
 
