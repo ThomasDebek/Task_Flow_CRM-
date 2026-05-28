@@ -2,12 +2,7 @@ class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clients =
-      if params[:query].present?
-        Client.search(params[:query]).order(created_at: :desc)
-      else
-        Client.order(created_at: :desc)
-      end
+    @clients = Client.order(created_at: :desc)
   end
 
   def show

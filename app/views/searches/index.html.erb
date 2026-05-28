@@ -1,0 +1,73 @@
+<div class="mb-8">
+  <h1 class="text-3xl font-bold text-slate-900">Search results</h1>
+
+  <% if @query.present? %>
+    <p class="mt-2 text-slate-600">
+      Results for: <span class="font-semibold"><%= @query %></span>
+    </p>
+  <% else %>
+    <p class="mt-2 text-slate-600">
+      Type something in the search bar to find clients and leads.
+    </p>
+  <% end %>
+</div>
+
+<% if @query.present? %>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div>
+      <h2 class="text-2xl font-bold text-slate-900 mb-4">Clients</h2>
+
+      <% if @clients.any? %>
+        <div class="space-y-4">
+          <% @clients.each do |client| %>
+            <%= link_to client_path(client), class: "block bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition" do %>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="text-lg font-semibold text-slate-900"><%= client.name %></h3>
+                  <p class="mt-1 text-sm text-slate-500"><%= client.company_name %></p>
+                  <p class="mt-2 text-sm text-slate-600"><%= client.email %></p>
+                </div>
+
+                <span class="<%= status_badge(client.status) %>">
+                  <%= client.status.capitalize %>
+                </span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 text-slate-600">
+          No clients found.
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-slate-900 mb-4">Leads</h2>
+
+      <% if @leads.any? %>
+        <div class="space-y-4">
+          <% @leads.each do |lead| %>
+            <%= link_to lead_path(lead), class: "block bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition" do %>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="text-lg font-semibold text-slate-900"><%= lead.full_name %></h3>
+                  <p class="mt-1 text-sm text-slate-500"><%= lead.company_name %></p>
+                  <p class="mt-2 text-sm text-slate-600"><%= lead.email %></p>
+                </div>
+
+                <span class="<%= lead_status_badge(lead.status) %>">
+                  <%= lead.status.capitalize %>
+                </span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 text-slate-600">
+          No leads found.
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

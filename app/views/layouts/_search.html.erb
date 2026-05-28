@@ -1,12 +1,13 @@
 <div class="w-96">
-  <%= form_with url: clients_path,
+  <%= form_with url: searches_path,
                 method: :get,
-                local: true do |form| %>
+                local: true,
+                class: "w-72" do |form| %>
 
     <%= form.text_field :query,
                         value: params[:query],
-                        placeholder: "Search clients...",
-                        class: "w-full rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-slate-500 focus:ring-slate-500" %>
+                        placeholder: "Search CRM...",
+                        class: "w-full rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-700 focus:border-slate-500 focus:ring-slate-500" %>
 
   <% end %>
 </div>
