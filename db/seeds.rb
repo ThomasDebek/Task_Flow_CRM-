@@ -4,6 +4,7 @@ puts "Cleaning database..."
 Task.destroy_all
 Lead.destroy_all
 Client.destroy_all
+Note.destroy_all
 
 puts "Creating clients..."
 
@@ -46,6 +47,56 @@ clients.each do |client|
       client: client
     )
   end
+end
+
+
+
+puts "Creating notes..."
+
+note_contents = [
+
+  "Client requested a pricing update for the enterprise package.",
+
+  "Follow-up call scheduled for next Monday.",
+
+  "Waiting for signed contract confirmation.",
+
+  "Client prefers communication by email.",
+
+  "Meeting went well, interested in long-term cooperation.",
+
+  "Asked about integration with existing software.",
+
+  "Client wants a product demo next week.",
+
+  "Important VIP client with recurring projects.",
+
+  "Need to prepare updated project timeline.",
+
+  "Requested additional service documentation.",
+
+  "Client is comparing offers from competitors.",
+
+  "Potential upsell opportunity discussed during meeting."
+
+]
+
+clients.each do |client|
+
+  rand(2..5).times do
+
+    Note.create!(
+
+      content: note_contents.sample,
+
+      client: client,
+
+      created_at: Faker::Time.backward(days: 20)
+
+    )
+
+  end
+
 end
 
 puts "Seeds created successfully!"
