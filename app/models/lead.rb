@@ -1,4 +1,6 @@
 class Lead < ApplicationRecord
+  include PgSearch::Model
+
   STATUSES = %w[new contacted qualified lost].freeze
 
   validates :first_name, presence: true
@@ -10,6 +12,15 @@ class Lead < ApplicationRecord
   scope :contacted, -> { where(status: "contacted") }
   scope :qualified, -> { where(status: "qualified") }
   scope :lost, -> { where(status: "lost") }
+
+
+  pg_search_scope :search,
+                  against: [:first_name, :last_name, :email, :phone, :company_name],
+                  using: {
+                    tsearch: {
+                      prefix: true
+                    }
+                  }
 
 
 
