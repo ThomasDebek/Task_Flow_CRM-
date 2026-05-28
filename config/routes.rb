@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :clients do
     resources :tasks, except: [:index, :show]
+    resources :notes, only: [:create, :destroy]
   end
 
 
