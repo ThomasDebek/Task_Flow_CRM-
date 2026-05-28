@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
+  resources :searches, only: [:index]
+
   resources :clients do
     resources :tasks, except: [:index, :show]
   end
@@ -14,5 +16,4 @@ Rails.application.routes.draw do
   end
 
   get "up" => "rails/health#show", as: :rails_health_check
-  get "search", to: "search#index", as: :search
 end

@@ -2,12 +2,7 @@ class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy, :convert, :advance]
 
   def index
-    @leads =
-      if params[:query].present?
-        Lead.search(params[:query]).order(created_at: :desc)
-      else
-        Lead.order(created_at: :desc)
-      end
+    @leads = Lead.order(created_at: :desc)
   end
 
   def show
