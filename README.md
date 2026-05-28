@@ -68,6 +68,7 @@ Clients have a status:
 ⚙️ Technical Implementation
 •	✅ Ruby on Rails
 •	✅ PostgreSQL database
+•   ✅ PgSearch with PostgreSQL full-text search
 •	✅ MVC architecture
 •	✅ Strong parameters in controller
 •	✅ Reusable partials (_form)
@@ -81,6 +82,7 @@ Clients have a status:
 •	✅ LeadsController – full CRUD + conversion
 •	✅ Client model – validations and data structure
 •	✅ Lead model – validations and helper methods
+•   ✅ SearchesController – global CRM search
 
 
 
@@ -118,6 +120,17 @@ Clients have a status:
 - ✅ Search by company name
 - ✅ Global search bar in navigation
 
+### Global Search System
+- ✅ Global CRM search using PgSearch
+- ✅ Search clients and leads from the navigation bar
+- ✅ PostgreSQL full-text search
+- ✅ Search by name
+- ✅ Search by email
+- ✅ Search by phone number
+- ✅ Search by company name
+- ✅ Dedicated global search results page
+- ✅ Reusable search partial in navbar
+
 ⸻
 ## 🧪 What I Learned
 
@@ -132,6 +145,8 @@ Clients have a status:
 - Working with nested resources and associations in Rails
 - Implementing PostgreSQL search using PgSearch
 - Building reusable search functionality
+- Using PostgreSQL full-text search with PgSearch 
+- Creating reusable search partials
 ⸻
 
 🔜 Next Steps
