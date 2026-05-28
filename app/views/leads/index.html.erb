@@ -7,6 +7,29 @@
   <%= link_to "New lead", new_lead_path, class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800" %>
 </div>
 
+<div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-8">
+  <%= form_with url: leads_path,
+                method: :get,
+                local: true,
+                class: "flex flex-col sm:flex-row gap-3" do |form| %>
+
+    <%= form.text_field :query,
+                        value: params[:query],
+                        placeholder: "Search leads by name, email, phone or company...",
+                        class: "w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-700 focus:border-slate-500 focus:ring-slate-500" %>
+
+    <%= form.submit "Search",
+                    class: "inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800 cursor-pointer" %>
+
+    <% if params[:query].present? %>
+      <%= link_to "Clear",
+                  leads_path,
+                  class: "inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-slate-700 font-medium hover:bg-slate-50" %>
+    <% end %>
+
+  <% end %>
+</div>
+
 <% if @leads.any? %>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
     <% @leads.each do |lead| %>
@@ -41,10 +64,24 @@
   </div>
 <% else %>
   <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-10 text-center">
-    <h2 class="text-xl font-semibold text-slate-900">No leads yet</h2>
-    <p class="mt-3 text-slate-600">Create your first lead to get started.</p>
+    <h2 class="text-xl font-semibold text-slate-900">
+      <%= params[:query].present? ? "No leads found" : "No leads yet" %>
+    </h2>
+
+    <p class="mt-3 text-slate-600">
+      <% if params[:query].present? %>
+        Try a different search term or clear the search.
+      <% else %>
+        Create your first lead to get started.
+      <% end %>
+    </p>
+
     <div class="mt-6">
-      <%= link_to "Create lead", new_lead_path, class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800" %>
+      <% if params[:query].present? %>
+        <%= link_to "Clear search", leads_path, class: "inline-flex items-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-slate-700 font-medium hover:bg-slate-50" %>
+      <% else %>
+        <%= link_to "Create lead", new_lead_path, class: "inline-flex items-center rounded-lg bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800" %>
+      <% end %>
     </div>
   </div>
 <% end %>
