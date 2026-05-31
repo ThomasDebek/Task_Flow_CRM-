@@ -1,4 +1,5 @@
 class Client < ApplicationRecord
+  belongs_to :user
 
   include PgSearch::Model
 

@@ -1,16 +1,32 @@
 require 'faker'
 
 puts "Cleaning database..."
+
+Note.destroy_all
 Task.destroy_all
 Lead.destroy_all
 Client.destroy_all
-Note.destroy_all
 User.destroy_all
+
+puts "Creating users..."
+
+admin = User.create!(
+  email: "admin@example.com",
+  password: "password123",
+  password_confirmation: "password123"
+)
+
+demo = User.create!(
+  email: "admin@gmail.com",
+  password: "secret",
+  password_confirmation: "secret"
+)
 
 puts "Creating clients..."
 
 clients = 10.times.map do
   Client.create!(
+    user: [admin, demo].sample,
     name: Faker::Name.name,
     email: Faker::Internet.unique.email,
     phone: Faker::PhoneNumber.cell_phone,
@@ -50,7 +66,6 @@ clients.each do |client|
   end
 end
 
-
 puts "Creating notes..."
 
 note_contents = [
@@ -78,24 +93,8 @@ clients.each do |client|
   end
 end
 
-
-
-puts "Creating users..."
-
-User.create!(
-  email: "admin@example.com",
-  password: "password123",
-  password_confirmation: "password123"
-)
-
-User.create!(
-  email: "admin@gmail.com",
-  password: "secret",
-  password_confirmation: "secret"
-)
-
 puts "Login credentials:"
 puts "admin@example.com / password123"
-puts "admin@gmail.com / secret"
+puts "admin@gmail.com / secret123"
 
 puts "Seeds created successfully!"
