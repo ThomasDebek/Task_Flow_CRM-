@@ -2,7 +2,7 @@ class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy, :convert, :advance]
 
   def index
-    @leads = Lead.order(created_at: :desc)
+    @leads = current_user.leads.order(created_at: :desc)
   end
 
   def show
@@ -13,7 +13,7 @@ class LeadsController < ApplicationController
   end
 
   def create
-    @lead = Lead.new(lead_params)
+    @lead = current_user.leads.new(lead_params)
 
     if @lead.save
       redirect_to @lead, notice: "Lead was successfully created."
@@ -39,7 +39,7 @@ class LeadsController < ApplicationController
   end
 
   def convert
-    client = Client.create(
+    client = current_user.clients.create(
       name: @lead.full_name,
       email: @lead.email,
       phone: @lead.phone,
@@ -65,7 +65,7 @@ class LeadsController < ApplicationController
   private
 
   def set_lead
-    @lead = Lead.find(params[:id])
+    @lead = current_user.leads.find(params[:id])
   end
 
   def lead_params

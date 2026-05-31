@@ -23,7 +23,7 @@ class NotesController < ApplicationController
 
   private
   def set_client
-    @client = Client.find(params[:client_id])
+    @client = current_user.clients.find(params[:client_id])
   end
 
   def note_params

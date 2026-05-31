@@ -1,5 +1,6 @@
 class Lead < ApplicationRecord
   include PgSearch::Model
+  belongs_to :user
 
   STATUSES = %w[new contacted qualified lost].freeze
 

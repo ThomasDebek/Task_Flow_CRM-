@@ -1,0 +1,18 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation"
+       data-turbo-temporary
+       class="mb-6 rounded-xl border border-red-200 bg-red-50 p-4">
+
+    <h2 class="text-sm font-semibold text-red-800">
+      <%= pluralize(resource.errors.count, "error") %>
+      prevented this account from being saved:
+    </h2>
+
+    <ul class="mt-3 list-disc list-inside space-y-1 text-sm text-red-700">
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+
+  </div>
+<% end %>

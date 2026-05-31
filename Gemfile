@@ -70,3 +70,5 @@ gem "tailwindcss-rails", "~> 4.4"
 gem "faker", "~> 3.8"
 
 gem "pg_search", "~> 2.3"
+
+gem "devise"

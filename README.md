@@ -74,6 +74,8 @@ Clients have a status:
 •	✅ Reusable partials (_form)
 •	✅ View helpers (status_badge)
 •	✅ Clean and structured controllers
+•   ✅ Devise Authentication
+•   ✅ User ownership authorization
 
 ⸻
 
@@ -83,6 +85,7 @@ Clients have a status:
 •	✅ Client model – validations and data structure
 •	✅ Lead model – validations and helper methods
 •   ✅ SearchesController – global CRM search
+•   ✅ User model – authentication and ownership
 
 
 
@@ -131,6 +134,26 @@ Clients have a status:
 - ✅ Dedicated global search results page
 - ✅ Reusable search partial in navbar
 
+
+### Multi-User CRM
+- ✅ Clients belong to users
+- ✅ Leads belong to users
+- ✅ Users can access only their own data
+- ✅ Secure ownership-based resource access
+- ✅ Protected nested resources (tasks and notes)
+
+
+### Authentication & User Management
+- ✅ User authentication with Devise
+- ✅ User registration
+- ✅ User login and logout
+- ✅ Password reset functionality
+- ✅ Account management
+- ✅ Tailwind CSS styled Devise views
+
+
+
+
 ⸻
 ## 🧪 What I Learned
 
@@ -147,11 +170,20 @@ Clients have a status:
 - Building reusable search functionality
 - Using PostgreSQL full-text search with PgSearch 
 - Creating reusable search partials
+- Implementing authentication with Devise
+- Working with user ownership and authorization
+- Restricting resources to authenticated users
+- Styling Devise views with Tailwind CSS
+- Building a multi-user CRM architecture
 ⸻
 
 🔜 Next Steps
 
-•	⏳ Notes system
-•	⏳ Authentication (Devise)
-•	⏳ Pagination
+• ⏳ Notes improvements
+• ⏳ Pagination (Kaminari)
+• ⏳ RSpec Tests
+• ⏳ Service Objects
+• ⏳ Decorators / Presenters
+• ⏳ Background Jobs (Sidekiq)
+• ⏳ Hotwire / Turbo Streams
 
