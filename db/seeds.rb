@@ -24,7 +24,7 @@ demo = User.create!(
 
 puts "Creating clients..."
 
-clients = 10.times.map do
+clients = 30.times.map do
   Client.create!(
     user: [admin, demo].sample,
     name: Faker::Name.name,
