@@ -2,7 +2,10 @@ class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clients = current_user.clients.order(created_at: :desc)
+    @clients = current_user.clients
+                           .order(created_at: :desc)
+                           .page(params[:page])
+                           .per(10)
   end
 
   def show

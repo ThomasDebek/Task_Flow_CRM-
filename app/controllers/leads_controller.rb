@@ -2,7 +2,10 @@ class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy, :convert, :advance]
 
   def index
-    @leads = current_user.leads.order(created_at: :desc)
+    @leads = current_user.leads
+                         .order(created_at: :desc)
+                         .page(params[:page])
+                         .per(10)
   end
 
   def show
