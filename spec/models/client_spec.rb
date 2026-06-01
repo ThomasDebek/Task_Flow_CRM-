@@ -21,6 +21,13 @@ RSpec.describe Client, type: :model do
       expect(client.errors[:email]).to include("can't be blank")
     end
 
+    it "requires a unique email" do
+      create(:client, email: "<EMAIL>")
+      client = build(:client, email: "<EMAIL>")
+      client.valid?
+      expect(client.errors[:email]).to include("has already been taken")
+      end
+
 
 
   end
