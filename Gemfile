@@ -16,7 +16,7 @@ gem "faker", "~> 3.8"
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.0"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 gem "solid_cache"
