@@ -9,6 +9,15 @@ RSpec.describe Client, type: :model do
 
       expect(client).to be_valid
     end
+
+
+    it "is requires a name" do
+      client = build(:client, name: nil)
+
+      expect(client).to be_invalid
+    end
+
+
   end
 
 end
