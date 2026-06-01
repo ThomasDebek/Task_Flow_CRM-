@@ -33,6 +33,7 @@ group :development, :test do
   gem "bundler-audit", require: false
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
+  gem "factory_bot_rails"
   gem 'rspec-rails', '~> 7.1'
 end
 
