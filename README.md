@@ -182,7 +182,7 @@ Clients have a status:
 - Restricting resources to authenticated users
 - Styling Devise views with Tailwind CSS
 - Building a multi-user CRM architecture
-⸻
+- Add new pagination used kaminari 
 
 🔜 Next Steps
 
