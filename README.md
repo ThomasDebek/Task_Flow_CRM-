@@ -152,6 +152,13 @@ Clients have a status:
 - ✅ Tailwind CSS styled Devise views
 
 
+### Pagination
+- ✅ Kaminari pagination
+- ✅ Paginated clients list
+- ✅ Paginated leads list
+- ✅ Custom Tailwind styled pagination
+
+
 
 
 ⸻
@@ -180,7 +187,6 @@ Clients have a status:
 🔜 Next Steps
 
 • ⏳ Notes improvements
-• ⏳ Pagination (Kaminari)
 • ⏳ RSpec Tests
 • ⏳ Service Objects
 • ⏳ Decorators / Presenters
