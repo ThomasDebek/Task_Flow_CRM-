@@ -13,6 +13,7 @@ gem "jbuilder"
 gem "devise"
 gem "pg_search", "~> 2.3"
 gem "faker", "~> 3.8"
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 
 gem "image_processing", "~> 1.2"
