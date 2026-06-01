@@ -35,8 +35,28 @@ RSpec.describe Client, type: :model do
       expect(client.errors[:email]).to include("has already been taken")
     end
 
+    it "requires a phone" do
+      client = build(:client, phone: nil)
+      client.valid?
+      expect(client.errors[:phone]).to include("can't be blank")
+    end
 
-    
+    it "requires a company_name" do
+      client = build(:client, company_name: nil)
+      client.valid?
+      expect(client.errors[:company_name]).to include("can't be blank")
+    end
+
+    it "requires a status" do
+      client = build(:client, status: nil)
+      client.valid?
+      expect(client.errors[:status]).to include("can't be blank")
+    end
+
+
+
+
+
 
 
 
