@@ -66,16 +66,19 @@ Clients have a status:
 ⸻
 
 ⚙️ Technical Implementation
-•	✅ Ruby on Rails
-•	✅ PostgreSQL database
-•   ✅ PgSearch with PostgreSQL full-text search
-•	✅ MVC architecture
-•	✅ Strong parameters in controller
-•	✅ Reusable partials (_form)
-•	✅ View helpers (status_badge)
-•	✅ Clean and structured controllers
-•   ✅ Devise Authentication
-•   ✅ User ownership authorization
+• ✅ Ruby on Rails
+• ✅ PostgreSQL database
+• ✅ PgSearch with PostgreSQL full-text search
+• ✅ MVC architecture
+• ✅ Strong parameters in controller
+• ✅ Reusable partials (_form)
+• ✅ View helpers (status_badge)
+• ✅ Clean and structured controllers
+• ✅ Devise Authentication
+• ✅ User ownership authorization
+• ✅ RSpec testing framework
+• ✅ FactoryBot test factories
+• ✅ Shoulda Matchers
 
 ⸻
 
@@ -158,6 +161,16 @@ Clients have a status:
 - ✅ Paginated leads list
 - ✅ Custom Tailwind styled pagination
 
+### Testing (RSpec)
+- ✅ RSpec configured for Rails 8
+- ✅ FactoryBot configured
+- ✅ Shoulda Matchers configured
+- ✅ Client model validation specs
+- ✅ Client model association specs
+- ✅ Dependent destroy association specs
+- ✅ Lead model specs
+- ✅ Custom business logic tests (full_name, next_status, can_advance?)
+
 
 
 
@@ -183,11 +196,19 @@ Clients have a status:
 - Styling Devise views with Tailwind CSS
 - Building a multi-user CRM architecture
 - Add new pagination used kaminari 
+- Setting up RSpec in a Rails application
+- Creating factories with FactoryBot
+- Testing model validations
+- Testing Active Record associations
+- Testing dependent destroy callbacks
+- Testing custom model methods
+- Using Shoulda Matchers for cleaner specs
 
 🔜 Next Steps
 
 • ⏳ Notes improvements
-• ⏳ RSpec Tests
+• ⏳ Request Specs
+• ⏳ System Specs (Capybara)
 • ⏳ Service Objects
 • ⏳ Decorators / Presenters
 • ⏳ Background Jobs (Sidekiq)

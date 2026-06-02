@@ -3,9 +3,9 @@ FactoryBot.define do
     association :user
     first_name { "John" }
     last_name { "Doe" }
-    email { "<EMAIL>" }
-    phone { "1234567890" }
+    email { Faker::Internet.unique.email }
+    phone { "123456789" }
     company_name { "Test Company" }
-    status { "active" }
+    status { "new" }
   end
 end
