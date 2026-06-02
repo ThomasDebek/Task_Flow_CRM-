@@ -72,6 +72,20 @@ RSpec.describe Client, type: :model do
       expect(client.notes).to be_a(ActiveRecord::Relation)
     end
 
+    it "deletes associated tasks when destroyed" do
+      client = create(:client)
+      create(:task, client: client)
+
+      expect { client.destroy }.to change(Task, :count).by(-1)
+    end
+
+    it "deletes associated notes when destroyed" do
+      client = create(:client)
+      create(:note, client: client)
+
+      expect { client.destroy }.to change(Note, :count).by(-1)
+    end
+
 
     it {should belong_to(:user)}
     it {should have_many(:tasks)}
