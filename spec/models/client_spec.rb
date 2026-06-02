@@ -52,14 +52,29 @@ RSpec.describe Client, type: :model do
       client.valid?
       expect(client.errors[:status]).to include("can't be blank")
     end
+  end
 
 
+  describe "associations" do
+    it "belongs to a user " do
+      client = create(:client)
+      expect(client.user).to be_a(User)
+    end
+
+    it "has many tasks" do
+      client = create(:client)
+      expect(client.tasks).to be_a(ActiveRecord::Relation)
+    end
 
 
-
-
-
-
+    it "has many notes" do
+      client = create(:client)
+      expect(client.notes).to be_a(ActiveRecord::Relation)
+    end
 
   end
+
+
+
+
 end
