@@ -72,6 +72,11 @@ RSpec.describe Client, type: :model do
       expect(client.notes).to be_a(ActiveRecord::Relation)
     end
 
+
+    it {should belong_to(:user)}
+    it {should have_many(:tasks)}
+    it {should have_many(:notes)}
+
   end
 
 
