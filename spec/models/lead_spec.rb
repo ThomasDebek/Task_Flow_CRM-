@@ -63,5 +63,13 @@ RSpec.describe Lead, type: :model do
       lead = build(:lead, status: "lost")
       expect(lead.can_advance?).to be false
     end
+
+    it "allows only valid statuses" do
+      lead = build(:lead, status: "invalid")
+
+      expect(lead).not_to be_valid
+      expect(lead.errors[:status]).to include("is not included in the list")
+    end
+
   end
 end
