@@ -47,8 +47,22 @@ RSpec.describe "Request Clients", type: :request do
       }
       expect(Client.last.user).to eq(user)
     end
-    
+  end
 
+
+
+
+  describe "GET /show" do
+    it "returns a successful response for own client" do
+      user = create(:user)
+      client = create(:client, user: user)
+
+      sign_in user
+
+      get client_path(client)
+
+      expect(response).to have_http_status(:success)
+    end
   end
 
 end
