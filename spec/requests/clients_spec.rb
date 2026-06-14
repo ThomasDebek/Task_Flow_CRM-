@@ -13,6 +13,24 @@ RSpec.describe "Request Clients", type: :request do
       get clients_path
       expect(response).to redirect_to(new_user_session_path)
     end
-
   end
+
+  describe "POST /create" do
+    it "creates a new client" do
+      user = create(:user)
+      sign_in user
+      expect do
+        post clients_path, params: {
+          client: {
+            name: "Test Client",
+            email: "test@example.com",
+            phone: "123456789",
+            company_name: "Test Company",
+            status: "active"
+          }
+        }
+      end.to change(Client, :count).by(1)
+    end
+  end
+
 end
