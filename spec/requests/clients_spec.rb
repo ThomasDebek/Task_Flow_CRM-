@@ -50,8 +50,6 @@ RSpec.describe "Request Clients", type: :request do
   end
 
 
-
-
   describe "GET /show" do
     it "returns a successful response for own client" do
       user = create(:user)
@@ -74,6 +72,24 @@ RSpec.describe "Request Clients", type: :request do
       get client_path(other_client)
 
       expect(response).to have_http_status(:not_found)
+    end
+  end
+
+
+  describe "PATCH /update" do
+    it "updates own client" do
+      user = create(:user)
+      client = create(:client, user: user)
+
+      sign_in user
+
+      patch client_path(client), params: {
+        client: {
+          name: "Updated Client"
+        }
+      }
+
+      expect(client.reload.name).to eq("Updated Client")
     end
   end
 
