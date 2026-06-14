@@ -31,6 +31,24 @@ RSpec.describe "Request Clients", type: :request do
         }
       end.to change(Client, :count).by(1)
     end
+
+
+    it "assigns the client to the current user" do
+      user = create(:user)
+      sign_in user
+      post clients_path, params: {
+        client: {
+          name: "Test Client",
+          email: "test@example.com",
+          phone: "123456789",
+          company_name: "Test Company",
+          status: "active"
+        }
+      }
+      expect(Client.last.user).to eq(user)
+    end
+    
+
   end
 
 end
