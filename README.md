@@ -165,14 +165,32 @@ Clients have a status:
 - ✅ RSpec configured for Rails 8
 - ✅ FactoryBot configured
 - ✅ Shoulda Matchers configured
-- ✅ Client model validation specs
-- ✅ Client model association specs
-- ✅ Dependent destroy association specs
-- ✅ Lead model specs
-- ✅ Custom business logic tests (full_name, next_status, can_advance?)
-
-
-
+- ✅ Client model specs:
+  - Validations
+  - Associations
+  - Dependent destroy behavior
+- ✅ Lead model specs:
+  - Validations
+  - Associations
+  - Custom methods: full_name, next_status, can_advance?
+- ✅ Task model specs:
+  - Validations
+  - Associations
+  - Status scopes
+- ✅ Note model specs:
+  - Validation
+  - Associations
+- ✅ Clients request specs:
+  - Authenticated access
+  - Unauthenticated redirects
+  - Create client
+  - Assign client to current user
+  - Show own client
+  - Prevent access to other users' clients
+  - Update own client
+  - Prevent updating other users' clients
+  - Delete own client
+  - Prevent deleting other users' clients
 
 ⸻
 ## 🧪 What I Learned
@@ -203,14 +221,21 @@ Clients have a status:
 - Testing dependent destroy callbacks
 - Testing custom model methods
 - Using Shoulda Matchers for cleaner specs
+- Writing request specs for authenticated Rails controllers
+- Testing Devise-protected routes
+- Testing multi-user data ownership in request specs
+- Testing create, show, update and destroy actions
 
 🔜 Next Steps
 
 • ⏳ Notes improvements
-• ⏳ Request Specs
+• ⏳ Leads Request Specs
+• ⏳ Notes Request Specs
+• ⏳ Tasks Request Specs
 • ⏳ System Specs (Capybara)
 • ⏳ Service Objects
 • ⏳ Decorators / Presenters
 • ⏳ Background Jobs (Sidekiq)
 • ⏳ Hotwire / Turbo Streams
+
 
