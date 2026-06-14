@@ -63,6 +63,18 @@ RSpec.describe "Request Clients", type: :request do
 
       expect(response).to have_http_status(:success)
     end
+
+    it "does not allow access to another user's client" do
+      user = create(:user)
+      other_user = create(:user)
+      other_client = create(:client, user: other_user)
+
+      sign_in user
+
+      get client_path(other_client)
+
+      expect(response).to have_http_status(:not_found)
+    end
   end
 
 end
