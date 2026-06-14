@@ -91,6 +91,23 @@ RSpec.describe "Request Clients", type: :request do
 
       expect(client.reload.name).to eq("Updated Client")
     end
-  end
 
+    it "does not allow a user to update another user's client" do
+      user = create(:user)
+      other_user = create(:user)
+      other_client = create(
+        :client,
+        user: other_user,
+        name: "Original Name"
+      )
+      sign_in user
+      patch client_path(other_client), params: {
+        client: {
+          name: "Hacked Name"
+        }
+      }
+      expect(response).to have_http_status(:not_found)
+      expect(other_client.reload.name).to eq("Original Name")
+    end
+  end
 end
