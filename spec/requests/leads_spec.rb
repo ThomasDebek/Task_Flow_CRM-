@@ -72,5 +72,25 @@ RSpec.describe "Leads", type: :request do
   end
 
 
+  describe "GET /show" do
+    it "returns a successful response for own lead" do
+      user = create(:user)
+      lead = create(:lead, user: user)
+      sign_in user
+      get lead_path(lead)
+      expect(response).to have_http_status(:success)
+    end
+
+    it "does not allow access to another user's lead" do
+      user = create(:user)
+      other_user = create(:user)
+      other_lead = create(:lead, user: other_user)
+      sign_in user
+      get lead_path(other_lead)
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
+
 
 end
