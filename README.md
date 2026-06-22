@@ -191,6 +191,18 @@ Clients have a status:
   - Prevent updating other users' clients
   - Delete own client
   - Prevent deleting other users' clients
+- ✅ Leads request specs:
+  - Authenticated access
+  - Unauthenticated redirects
+  - Create lead
+  - Assign lead to current user
+  - Show own lead
+  - Prevent access to other users' leads
+  - Update own lead
+  - Prevent updating other users' leads
+  - Delete own lead
+  - Prevent deleting other users' leads
+  - Convert lead into client
 
 ⸻
 ## 🧪 What I Learned
@@ -229,7 +241,6 @@ Clients have a status:
 🔜 Next Steps
 
 • ⏳ Notes improvements
-• ⏳ Leads Request Specs
 • ⏳ Notes Request Specs
 • ⏳ Tasks Request Specs
 • ⏳ System Specs (Capybara)
