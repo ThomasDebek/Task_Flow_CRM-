@@ -92,5 +92,34 @@ RSpec.describe "Leads", type: :request do
   end
 
 
+  describe "PATCH /update" do
+    it "allows a user to update their own lead" do
+      user = create(:user)
+      lead = create(:lead, user: user)
+      sign_in user
+      patch lead_path(lead), params: {
+        lead: {
+          first_name: "Updated"
+        }
+      }
+      expect(lead.reload.first_name).to eq("Updated")
+    end
+
+    it "does not allow a user to update another user's lead" do
+      user = create(:user)
+      other_user = create(:user)
+      other_lead = create(:lead, user: other_user, first_name: "Original")
+      sign_in user
+      patch lead_path(other_lead), params: {
+        lead: {
+          first_name: "Hacked"
+        }
+      }
+      expect(response).to have_http_status(:not_found)
+      expect(other_lead.reload.first_name).to eq("Original")
+    end
+  end
+
+
 
 end
