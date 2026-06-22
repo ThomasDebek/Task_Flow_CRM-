@@ -121,5 +121,60 @@ RSpec.describe "Leads", type: :request do
   end
 
 
+  describe "DELETE /destroy" do
+    it "allows a user to delete their own lead" do
+      user = create(:user)
+      lead = create(:lead, user: user)
+      sign_in user
+      expect {
+        delete lead_path(lead)
+      }.to change(Lead, :count).by(-1)
+    end
+
+    it "does not allow a user to delete another user's lead" do
+      user = create(:user)
+      other_user = create(:user)
+      other_lead = create(:lead, user: other_user)
+      sign_in user
+      expect {
+        delete lead_path(other_lead)
+      }.not_to change(Lead, :count)
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
+
+  describe "POST /convert" do
+    it "converts a lead into a client" do
+      user = create(:user)
+      lead = create(
+        :lead,
+        user: user,
+        first_name: "John",
+        last_name: "Doe",
+        email: "john@example.com",
+        phone: "123456789",
+        company_name: "Test Company"
+      )
+
+      sign_in user
+
+      expect {
+        post convert_lead_path(lead)
+      }.to change(Client, :count).by(1)
+                                 .and change(Lead, :count).by(-1)
+
+      client = Client.last
+
+      expect(client.name).to eq("John Doe")
+      expect(client.email).to eq("john@example.com")
+      expect(client.phone).to eq("123456789")
+      expect(client.company_name).to eq("Test Company")
+      expect(client.status).to eq("active")
+      expect(client.user).to eq(user)
+    end
+  end
+
+
 
 end
