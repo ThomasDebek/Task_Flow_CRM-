@@ -66,16 +66,19 @@ Clients have a status:
 ⸻
 
 ⚙️ Technical Implementation
-•	✅ Ruby on Rails
-•	✅ PostgreSQL database
-•   ✅ PgSearch with PostgreSQL full-text search
-•	✅ MVC architecture
-•	✅ Strong parameters in controller
-•	✅ Reusable partials (_form)
-•	✅ View helpers (status_badge)
-•	✅ Clean and structured controllers
-•   ✅ Devise Authentication
-•   ✅ User ownership authorization
+• ✅ Ruby on Rails
+• ✅ PostgreSQL database
+• ✅ PgSearch with PostgreSQL full-text search
+• ✅ MVC architecture
+• ✅ Strong parameters in controller
+• ✅ Reusable partials (_form)
+• ✅ View helpers (status_badge)
+• ✅ Clean and structured controllers
+• ✅ Devise Authentication
+• ✅ User ownership authorization
+• ✅ RSpec testing framework
+• ✅ FactoryBot test factories
+• ✅ Shoulda Matchers
 
 ⸻
 
@@ -158,8 +161,57 @@ Clients have a status:
 - ✅ Paginated leads list
 - ✅ Custom Tailwind styled pagination
 
-
-
+### Testing (RSpec)
+- ✅ RSpec configured for Rails 8
+- ✅ FactoryBot configured
+- ✅ Shoulda Matchers configured
+- ✅ Client model specs:
+  - Validations
+  - Associations
+  - Dependent destroy behavior
+- ✅ Lead model specs:
+  - Validations
+  - Associations
+  - Custom methods: full_name, next_status, can_advance?
+- ✅ Task model specs:
+  - Validations
+  - Associations
+  - Status scopes
+- ✅ Note model specs:
+  - Validation
+  - Associations
+- ✅ Clients request specs:
+  - Authenticated access
+  - Unauthenticated redirects
+  - Create client
+  - Assign client to current user
+  - Show own client
+  - Prevent access to other users' clients
+  - Update own client
+  - Prevent updating other users' clients
+  - Delete own client
+  - Prevent deleting other users' clients
+- ✅ Leads request specs:
+  - Authenticated access
+  - Unauthenticated redirects
+  - Create lead
+  - Assign lead to current user
+  - Show own lead
+  - Prevent access to other users' leads
+  - Update own lead
+  - Prevent updating other users' leads
+  - Delete own lead
+  - Prevent deleting other users' leads
+  - Convert lead into client
+- ✅ Notes request specs:
+  - Create note
+  - Delete note
+  - Prevent access to other users' notes
+- ✅ Tasks request specs:
+  - Create task
+  - Update task
+  - Delete task
+  - Prevent access to other users' tasks
 
 ⸻
 ## 🧪 What I Learned
@@ -182,14 +234,33 @@ Clients have a status:
 - Restricting resources to authenticated users
 - Styling Devise views with Tailwind CSS
 - Building a multi-user CRM architecture
-⸻
+- Add new pagination used kaminari 
+- Setting up RSpec in a Rails application
+- Creating factories with FactoryBot
+- Testing model validations
+- Testing Active Record associations
+- Testing dependent destroy callbacks
+- Testing custom model methods
+- Using Shoulda Matchers for cleaner specs
+- Writing request specs for authenticated Rails controllers
+- Testing Devise-protected routes
+- Testing multi-user data ownership in request specs
+- Testing create, show, update and destroy actions
+- Testing nested resources in Rails
+- Testing request specs for Notes and Tasks
+- Testing ownership-based authorization for nested resources
+- Testing CRUD actions through request specs
+
+
 
 🔜 Next Steps
 
-• ⏳ Notes improvements
-• ⏳ RSpec Tests
+• ⏳ Lead Advance Request Specs
+• ⏳ Search Request Specs
+• ⏳ Dashboard Request Specs
 • ⏳ Service Objects
 • ⏳ Decorators / Presenters
 • ⏳ Background Jobs (Sidekiq)
 • ⏳ Hotwire / Turbo Streams
+
 
