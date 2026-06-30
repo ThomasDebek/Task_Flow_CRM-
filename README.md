@@ -203,6 +203,15 @@ Clients have a status:
   - Delete own lead
   - Prevent deleting other users' leads
   - Convert lead into client
+- ✅ Notes request specs:
+  - Create note
+  - Delete note
+  - Prevent access to other users' notes
+- ✅ Tasks request specs:
+  - Create task
+  - Update task
+  - Delete task
+  - Prevent access to other users' tasks
 
 ⸻
 ## 🧪 What I Learned
@@ -237,13 +246,18 @@ Clients have a status:
 - Testing Devise-protected routes
 - Testing multi-user data ownership in request specs
 - Testing create, show, update and destroy actions
+- Testing nested resources in Rails
+- Testing request specs for Notes and Tasks
+- Testing ownership-based authorization for nested resources
+- Testing CRUD actions through request specs
+
+
 
 🔜 Next Steps
 
-• ⏳ Notes improvements
-• ⏳ Notes Request Specs
-• ⏳ Tasks Request Specs
-• ⏳ System Specs (Capybara)
+• ⏳ Lead Advance Request Specs
+• ⏳ Search Request Specs
+• ⏳ Dashboard Request Specs
 • ⏳ Service Objects
 • ⏳ Decorators / Presenters
 • ⏳ Background Jobs (Sidekiq)
