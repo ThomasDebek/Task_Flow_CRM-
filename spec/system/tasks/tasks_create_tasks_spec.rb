@@ -4,7 +4,7 @@ RSpec.describe "Tasks::CreateTasks", type: :system do
   before do
     driven_by(:rack_test)
   end
-  
+
     it "allows a user to create a task for a client" do
       user = create(:user)
       client = create(:client, user: user)
