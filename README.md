@@ -265,7 +265,6 @@ Clients have a status:
 
 
 🔜 Next Steps
-
 • ⏳ Client Update & Delete System Specs
 • ⏳ Task Update & Delete System Specs
 • ⏳ Note Delete System Spec
