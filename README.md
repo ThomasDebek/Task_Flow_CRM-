@@ -212,6 +212,13 @@ Clients have a status:
   - Update task
   - Delete task
   - Prevent access to other users' tasks
+- ✅ System specs (Capybara):
+  - User login
+  - Create client
+  - Create lead
+  - Convert lead into client
+  - Create task
+  - Create note
 
 ⸻
 ## 🧪 What I Learned
@@ -250,11 +257,18 @@ Clients have a status:
 - Testing request specs for Notes and Tasks
 - Testing ownership-based authorization for nested resources
 - Testing CRUD actions through request specs
+- Writing end-to-end system specs with Capybara
+- Testing complete user workflows through the browser
+- Testing authentication flows with Devise
+- Testing business processes from the user perspective
 
 
 
 🔜 Next Steps
 
+• ⏳ Client Update & Delete System Specs
+• ⏳ Task Update & Delete System Specs
+• ⏳ Note Delete System Spec
 • ⏳ Lead Advance Request Specs
 • ⏳ Search Request Specs
 • ⏳ Dashboard Request Specs
