@@ -32,9 +32,11 @@
         <div class="mt-6 flex items-center gap-3">
           <%= link_to "Show", client_path(client), class: "text-sm font-medium text-slate-700 hover:text-slate-900" %>
           <%= link_to "Edit", edit_client_path(client), class: "text-sm font-medium text-indigo-600 hover:text-indigo-800" %>
-          <%= link_to "Delete", client_path(client),
-                      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                      class: "text-sm font-medium text-red-600 hover:text-red-800" %>
+          <%= button_to "Delete",
+                        client_path(client),
+                        method: :delete,
+                        form: { data: { turbo_confirm: "Are you sure?" } },
+                        class: "text-sm font-medium text-red-600 hover:text-red-800" %>
         </div>
       </div>
     <% end %>
