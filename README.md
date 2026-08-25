@@ -215,6 +215,8 @@ Clients have a status:
 - ✅ System specs (Capybara):
   - User login
   - Create client
+  - Update client
+  - Delete client              
   - Create lead
   - Convert lead into client
   - Create task
@@ -261,11 +263,12 @@ Clients have a status:
 - Testing complete user workflows through the browser
 - Testing authentication flows with Devise
 - Testing business processes from the user perspective
+- Testing client update and delete workflows with Capybara
 
 
 
 🔜 Next Steps
-• ⏳ Client Update & Delete System Specs
+✅ Client Update & Delete System Specs   
 • ⏳ Task Update & Delete System Specs
 • ⏳ Note Delete System Spec
 • ⏳ Lead Advance Request Specs
