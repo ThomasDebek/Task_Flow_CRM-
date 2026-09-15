@@ -17,7 +17,7 @@ admin = User.create!(
 )
 
 demo = User.create!(
-  email: "admin@gmail.com",
+  email: "user@gmail.com",
   password: "secret",
   password_confirmation: "secret"
 )
